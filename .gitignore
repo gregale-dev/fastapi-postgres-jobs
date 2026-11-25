@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+.env
+.env.*
+*.secrets
+# Gregale's local link state; env.json declares optional variables and is shared.
+.gregale/*
+!.gregale/env.json

@@ -1,0 +1,20 @@
+# How Gregale runs this app. See https://gregale.dev/docs/deploy-fastapi
+hosting:
+  start: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+  health: /healthz
+
+# Runs before each new version takes traffic; a failure keeps the old one serving.
+release:
+  command: python migrate.py
+
+# Creates the database on the first deploy and binds it. The serving app gets
+# DATABASE_URL; only the release command gets the migration credential.
+databases:
+  - database: fastapi-jobs-db
+    env: DATABASE_URL
+    access: read_write
+    create:
+      postgres_major: 17
+  - database: fastapi-jobs-db
+    env: MIGRATION_DATABASE_URL
+    access: migration
