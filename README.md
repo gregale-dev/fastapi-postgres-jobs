@@ -1,5 +1,7 @@
 # FastAPI + Postgres background jobs that scale to zero
 
+[![Deploy on Gregale](https://gregale.dev/deploy-badge.svg)](https://gregale.dev/deploy?repo=https://github.com/gregale-dev/fastapi-postgres-jobs)
+
 A FastAPI API with a durable job queue in Postgres. There's no Redis and no
 always-on worker:
 
